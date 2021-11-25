@@ -1,0 +1,72 @@
+{
+    "Ta_641": [
+        "a             ,  kerea2  , *201VAS[",
+        "b      tiripode  ,  a3keu  ,  keresijo  ,  weke   *201VAS   2   tiripo  ,  eme  ,  pode  ,  owowe   *201VAS   1   tiripo  ,  keresijo  ,  weke  ,  apu  ,  kekaumeno[",
+        "        qeto     *203VAS   3   dipa  ,  mezoe  ,  qetorowe   *202VAS   1   dipae  ,  mezoe  ,  tiriowee    *202VAS    2   dipa  ,  mewijo  ,  qetorowe     *202VAS    1    [",
+        "        dipa  ,  mewijo  ,  tirijowe   *202VAS   1   dipa  ,  mewijo  ,  anowe   *202VAS   1"
+    ],
+    "Ta_642": [
+        "      topeza  ,  raeja  ,  weareja  ,  ajamena  ,  a2ro[  ]udopi  ,      kuwanoqe  ,  parakeweqe[      ]enewo  ,  pe[",
+        "        topeza  ,  raeja  ,  menoeja  ,  erepate  ,  ajamena  ,  qeqinoto  ,  audepi  ,  korupiqe   1",
+        "a    enewo  ,  peza",
+        "b      topeza  ,  raeja  ,  apiqoto  ,  erepatejo  ,  popi  ,  ekamateqe  ,  qeqinotoqe  ,  toqide"
+    ],
+    "Ta_707": [
+        "a        kutetajo",
+        "b     tono  ,  kurusapi  ,  opikereminijapi  ,  onitijapi   1   taranuqe  ,  ajameno  ,  erepatejo  ,  audepi   1",
+        "        tono  ,  kutesejo  ,  erepatejapi  ,  opikereminijapi  ,  seremokaraore  ,  qeqinomena  ,  adirijateqe  ,  potipiqe   1",
+        "    taranu  ,  kuteso  ,  ajameno  ,  erepatejo  ,  audepi",
+        "         "
+    ],
+    "Ta_708": [
+        "        tono  ,  kutesejo  ,  ajameno  ,  opikereminija  ,  erepate   1   [taranu  ,  kutesejo  ,  ajameno  ,  erepatejo  ,  audepi[",
+        "A      tono  ,  kutesejo   erepatejapi  ,  opikereminijapi  ,  seremokaraapi  ,  qeqinomena  ,  adirijapiqe",
+        "B         taranu  ,  kutesejo  ,  ajameno  ,  erepatejo  ,  adirijapi  ,  rewopiqe   1"
+    ],
+    "Ta_709": [
+        "        pijera3  ,  toqideja      *200VAS   3   pakoto  ,  apetemene   *214VAS   2   poroeketerija   *228VAS   1   koterija   6",
+        "a        saqe   1",
+        "b      aute   1   purautoro   2   qaratoro   1   ekara  ,  apiqoto  ,  pedewesa   1   ekara  ,  itowesa  ,  pedewesa  ,  soweneja  ,  audewe",
+        "         tiripo  ,  keresijo  ,  weke  ,  *34keu     *201VAS     1 tiripo  ,  keresijo  ,  weke  ,  opikewirijeu     *201VAS     1"
+    ],
+    "Ta_710": [
+        "        taranu  ,  ajameno  ,  erepatejo  ,  audepi  ,  sowenoqe  ,     *220   1",
+        "     "
+    ],
+    "Ta_711": [
+        "      owide  ,  pu2keqiri  ,  ote  ,  wanaka  ,  teke  ,  aukewa  ,  damokoro",
+        "        qerana  ,  wanasewija  ,  qoukara  ,  kokireja     *204VAS   1   qerana  ,  amotewija  ,  koronowesa",
+        "    qerana  ,  wanasewija  ,  kunaja  ,  qoukara  ,  toqidewesa    *204VAS   1"
+    ],
+    "Ta_713": [
+        "      topeza  ,  raeja  ,  kutesejo  ,  ekamapi  ,  erepatejoqe  ,  apiqoto  ,  enewopeza  ,  qeqinomena  ,  toqide   1",
+        "        topeza  ,  erepateja  ,  poroeke  ,  pitiro2wesa  ,  wepeza  ,  qeqinomena  ,  toqide   1   [topeza",
+        "      topeza  ,  kuteseja  ,  erepatejo  ,  ekamapi  ,  apiqoto  ,  enewopeza  ,  kokireja"
+    ],
+    "Ta_714": [
+        "      tono  ,  wea2rejo  ,  ajameno  ,  kuwano  ,  parakuweqe  ,  kurusoqe  ,  opikereminija",
+        "        ajamena  ,  kuruso  ,  adirijapi  ,  seremokaraoreqe  ,  kuruso [       ,  kurusoqe  ,  ponikipi   1",
+        "      kuwanijoqe  ,  ponikipi   1   taranu  ,  ajameno  ,  kuwano  ,  parakuweqe  ,  kurusoqe  ,  kurusapiqe  ,  kononipi   1"
+    ],
+    "Ta_715": [
+        "      topeza  ,  kuteseja  ,  erepatejo  ,  ekamapi  ,  apiqoto  ,  enewopeza  ,  kokireja",
+        "        topeza  ,  akarano  ,  erepateja  ,  apiqoto   1   topeza  ,  akarano   erepateja  ,  poroeke   1",
+        "      topezo  ,  mira2  ,  apiqoto  ,  pukoso  ,  ekee  ,  enewopezo  ,  toqidejo  , ajameno  ,  parakuwe   2"
+    ],
+    "Ta_716": [
+        "        pasaro  ,  kuruso  ,  api  ,  tonijo   2   wao      *232 2",
+        "        qisipee     *234   2"
+    ],
+    "Ta_721": [
+        "      taranu  ,  ajameno  ,  erepatejo  ,  audepi  ,  toqideqe  ,  karuweqe        *220   1",
+        "        taranuwe  ,  ajameno  ,  erepatejo  ,  audepi  ,  sowenoqe  ,  toqideqe     *220   3",
+        "        taranu  ,  ajameno  ,  erepatejo  ,  audepi  ,  sowenoqe  ,    *220   1",
+        "        taranu  ,  ajameno  ,  erepatejo  ,  audepi  ,  sowenoqe  ,       *220   1",
+        "        taranu   ,  ajameno  ,  erepatejo  ,  audepi      *220   1"
+    ],
+    "Ta_722": [
+        "       taranu  ,  ajameno  ,  erepatejo  ,  atoroqo  ,  iqoqe    ,  porupodeqe  ,  ponikeqe     *220   1",
+        "        taranu  ,  ajameno  ,  erepatejo  ,  karaapi  ,  rewotejo  ,  sowenoqe  ,       *220   1",
+        "    taranu  ,  ajameno  ,  erepatejapi  ,  karupi     *220   1   taranu  ,  ajameno  ,  erepatejapi  ,  karupi     *220   1"
+    ]
+}
