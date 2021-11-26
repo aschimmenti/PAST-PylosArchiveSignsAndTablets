@@ -259,3 +259,12 @@ body {
     overflow-x: hidden;
 
 }
+
+.tabletTitleDiv {
+    text-align: center;
+    margin: 5vh 0;
+}
+
+#tabletTitle span {
+    font-family: 'Circular Std';
+}

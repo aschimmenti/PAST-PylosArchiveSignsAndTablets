@@ -57,7 +57,6 @@ function addSeriesTablets(value) {
   $('#series-codes').empty()
   $.getJSON('data/index.json',function(indexOfTablets){
     list_of_codes = indexOfTablets[value]
-    console.log(list_of_codes)
     $('#series-codes').append('<div class="card-deck"><div id="rowdeck-series" class="row"></div></div>')
     $('#rowdeck-series').append(`
     <div class="col-md-4 ">
@@ -159,8 +158,8 @@ function showTablet(i) {
     $("#notes").append(notes_p)
     /*page_title = $("#tabletTitle").text()
     $("#tabletTitle").text(new_title = page_title + ' - ' + i.replace('_', ' '))*/
-    $("#tabletTitle").text('Pylos ' + i.replace('_', ' '))
-    tablet = '<img data-action="zoom" style="width:100%;" src="data/' + i  +"/" + i + '.jpg">'
+    $("#tabletTitle").text('PYLOS ' + i.replace('_', ' '))
+    tablet = '<img data-action="zoom" style="width:50vw;" src="data/' + i  +"/" + i + '.jpg">'
     $("#tabletShower").append(tablet)
   });}
 
