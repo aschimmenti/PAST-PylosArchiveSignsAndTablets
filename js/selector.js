@@ -68,21 +68,20 @@ function addSeriesTablets(value) {
     </div>
     </div></div>`)
     $.each( list_of_codes, function( key, val ) {
-      /*if ( (x === 'category' ) || (x === 'shape' ) || (x === 'series-description' ) || (x === 'author' ) || (x === 'provenance' )) {
-        return false;
+      if ( (key === 'category' ) || (key === 'shape' ) || (key === 'series-description' ) || (key === 'author' ) || (key === 'provenance' )) {
+        return;
       }
-      else {*/
       $('#rowdeck-series').append(
       `<div class="col-lg-4 col-md-6 col-sm-12">
       <div class="card mb-2 border-0">
-      <img class="card-img-top img-responsive tablet-card-size" src="data/${key}/${key}.jpg" alt="Card image cap">
+      <img class="card-img-top img-responsive tablet-card-size" src="data/thumbnails/${key}.jpg" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">${key.replace('_', ' ')}</h5>
         <p class="card-text"></p>
         <a onclick="showTablet('${key}')" class="btn btn-outline-secondary">SHOW TABLET</a>
       </div>
       </div></div>`
-      )//}
+      )
     });
 })}
 
