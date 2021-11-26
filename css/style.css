@@ -134,7 +134,9 @@ a, .nav-brand-acr, .nav-brand-subtitle, .nav-link {
     max-height: 68vh;
 }
 .arrowdiv {
-    margin:auto;
+    margin-top: 30%;
+    margin-left: auto;
+    margin-right: auto;
     font-size: 500;
     text-align: center;
 }
