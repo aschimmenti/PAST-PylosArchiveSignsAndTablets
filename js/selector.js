@@ -31,7 +31,7 @@ function getSeries2(indexOfTablets) {
     $('#rowdeck').append(`
     <div class="col-lg-4 col-md-6 col-sm-12">
       <div class="card border-0 document-card-size">
-        <img class="card-img-top img-responsive" src="images/ticon.png" alt="Card image cap">
+        <img class="card-img-top img-responsive" src="images/thumbnail${key}.png" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">Pylos ${key} series</h5>
           <a onclick="addSeriesTablets('${key}')" class="btn btn-outline-secondary">SHOW SERIES</a>
@@ -68,6 +68,10 @@ function addSeriesTablets(value) {
     </div>
     </div></div>`)
     $.each( list_of_codes, function( key, val ) {
+      /*if ( (x === 'category' ) || (x === 'shape' ) || (x === 'series-description' ) || (x === 'author' ) || (x === 'provenance' )) {
+        return false;
+      }
+      else {*/
       $('#rowdeck-series').append(
       `<div class="col-lg-4 col-md-6 col-sm-12">
       <div class="card mb-2 border-0">
@@ -78,7 +82,7 @@ function addSeriesTablets(value) {
         <a onclick="showTablet('${key}')" class="btn btn-outline-secondary">SHOW TABLET</a>
       </div>
       </div></div>`
-      )
+      )//}
     });
 })}
 
