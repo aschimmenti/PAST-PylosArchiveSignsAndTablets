@@ -31,9 +31,9 @@ function getSeries2(indexOfTablets) {
     $('#rowdeck').append(`
     <div class="col-lg-4 col-md-6 col-sm-12">
       <div class="card border-0 document-card-size">
+        <div class="card-body text-center">
         <img class="card-img-top img-responsive" src="images/thumbnail${key}.png" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Pylos ${key} series</h5>
+          <h5 class="card-title">Pylos ${key} Series</h5>
           <a onclick="addSeriesTablets('${key}')" class="btn btn-outline-secondary">SHOW SERIES</a>
         </div>
       </div>
@@ -73,8 +73,8 @@ function addSeriesTablets(value) {
       $('#rowdeck-series').append(
       `<div class="col-lg-4 col-md-6 col-sm-12">
       <div class="card mb-2 border-0">
+      <div class="card-body text-center">
       <img class="card-img-top img-responsive tablet-card-size" src="data/thumbnails/${key}.jpg" alt="Card image cap">
-      <div class="card-body">
         <h5 class="card-title">${key.replace('_', ' ')}</h5>
         <p class="card-text"></p>
         <a onclick="showTablet('${key}')" class="btn btn-outline-secondary">SHOW TABLET</a>
@@ -127,7 +127,7 @@ function showTablet(i) {
   $("#tabletShower").empty()
   $('#series-codes').empty()
   series = i.slice(0,2)
-  $('#series-codes').append('<button class="btn btn-outline-secondary" onClick="goBack(series);"><img src="images/prev.png"> GO BACK</button>')
+  $('#series-codes').append('<button class="btn btn-outline-secondary" onClick="goBack(series);">GO BACK</button>')
   $.getJSON('data/index.json',function(indexOfTablets){
     list_of_filenames = indexOfTablets[series][i]['filenames']
     list_of_filemaps = indexOfTablets[series][i]['file_maps']
