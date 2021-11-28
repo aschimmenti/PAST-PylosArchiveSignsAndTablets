@@ -24,7 +24,7 @@ function getSeries2(indexOfTablets) {
   $('#series-index-list').append('<li style="list-style: none; font-size: larger;">Series / </li>')
   $.each(indexOfTablets, function(key, value) {
     $('#series-index-list').append(`
-    <li style="list-style: none;"> <a class="cool-link" onclick="addSeriesTablets('${key}')">
+    <li style="list-style: none;" id="${key}SeriesList"> <a class="cool-link" onclick="addSeriesTablets('${key}')">
     Pylos ${key} Series
     </a>
     </li>`)
@@ -59,17 +59,22 @@ function addSeriesTablets(value) {
     list_of_codes = indexOfTablets[value]
     $('#series-codes').append('<div class="card-deck"><div id="rowdeck-series" class="row"></div></div>')
     $('#rowdeck-series').append(`
-    <div class="col-md-4 ">
+    <div class="col-lg-4 col-md-6 col-sm-12">
     <div class="card mb-2 border-0">
-      <div class="card-body">
+    <div class="card-body text-center">
+    <img class="card-img-top img-responsive tablet-card-size" src="images/thumbnail${value}.png" alt="Card image cap">
       <h5 class="card-title"> Series ${value} </h5>
       <a onclick="window.location.reload();" class="btn btn-outline-secondary">GO BACK</a>
     </div>
     </div></div>`)
+     
+    $(`#${value}SeriesList`).text(`Pylos ${value} Series /`)
+    $(`#${value}SeriesList`).append(`<ul id="tablet-li-elements"></ul>`)
     $.each( list_of_codes, function( key, val ) {
       if ( (key === 'category' ) || (key === 'shape' ) || (key === 'series-description' ) || (key === 'author' ) || (key === 'provenance' )) {
         return;
       }
+      $('#tablet-li-elements').append(`<li style="list-style: none;"><a onclick="showTablet('${key}')">${key.replace('_', ' ')}</a></li>`)
       $('#rowdeck-series').append(
       `<div class="col-lg-4 col-md-6 col-sm-12">
       <div class="card mb-2 border-0">
