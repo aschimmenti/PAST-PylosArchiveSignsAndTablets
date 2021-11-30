@@ -69,17 +69,13 @@ function addSeriesTablets(value) {
   $.getJSON('data/index.json',function(indexOfTablets){
     list_of_codes = indexOfTablets[value]
     $('.seriesTitle').text(`${value} Series`)
-    $('#series-codes').append('<div class="card-deck"><div id="rowdeck-series" class="row"></div></div>')
-    $('#rowdeck-series').append(`
-    <div class="col-lg-4 col-md-6 col-sm-12">
-    <div class="card mb-2 border-0">
-    <div class="card-body text-center">
-    <img class="card-img-top img-responsive tablet-card-size" src="images/arrow-back.png" alt="Card image cap">
-      <h5 class="card-title"></h5>
-      <a onclick="window.location.reload();" class="btn btn-outline-secondary">GO BACK</a>
-    </div>
-    </div></div>`)
-     
+    if ($('#back-btn').length === 0) {
+        $(`<a id="back-btn" class="btn px-0 mx-0 my-4" style="font-size:larger"></a>`).insertBefore("#tabletTitle")    
+    }
+    $("#back-btn")
+      .html('<i class="fas fa-chevron-left"></i> Back to Series')
+      .attr("onclick", "window.location.reload()")
+    $('#series-codes').append('<div class="card-deck"><div id="rowdeck-series" class="row"></div></div>')     
     $(`#${value}-backslash`).text('/')
     $(`#${value}SeriesList`).append(`<ul id="${value}-tablet-li-elements"></ul>`)
     $.each( list_of_codes, function( key, val ) {
@@ -144,7 +140,9 @@ function showTablet(i) {
   $("#tabletShower").empty()
   $('#series-codes').empty()
   series = i.slice(0,2)
-  $('#series-codes').append('<button class="btn btn-outline-secondary" onClick="goBack(series);">GO BACK</button>')
+  $("#back-btn")
+    .html('<i class="fas fa-chevron-left"></i> Back to Tablets')
+    .attr("onclick", "goBack(series)");
   $.getJSON('data/index.json',function(indexOfTablets){
     list_of_filenames = indexOfTablets[series][i]['filenames']
     list_of_filemaps = indexOfTablets[series][i]['file_maps']

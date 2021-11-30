@@ -61,6 +61,9 @@ function addSeriesTablets(value) {
   $.getJSON('data/index.json',function(indexOfTablets){
     list_of_codes = indexOfTablets[value]
     console.log(list_of_codes)
+    $("#back-btn")
+      .html('<i class="fas fa-chevron-left"></i> Back to Series')
+      .attr("onclick", "window.location.reload()");
     $('#series-codes').append('<div class="card-deck"><div id="rowdeck-series" class="row"></div></div>')
     $('#rowdeck-series').append(`
     <div class="col-md-4 ">
@@ -68,7 +71,6 @@ function addSeriesTablets(value) {
       <div class="card-body">
       <h5 class="card-title"> Series ${value} </h5>
       <p class="card-text">${value} description</p>
-      <a onclick="window.location.reload();" class="btn btn-primary">Go Back</a>
     </div>
     </div></div>`)
     $.each( list_of_codes, function( key, val ) {
@@ -129,7 +131,6 @@ function showTablet(i) {
   $("#tabletShower").empty()
   $('#series-codes').empty()
   series = i.slice(0,2)
-  $('#series-codes').append('<button class="btn btn-primary" onClick="goBack(series);"><img src="images/prev.png"> Go back</button>')
   $.getJSON('data/index.json',function(indexOfTablets){
     list_of_filenames = indexOfTablets[series][i]['filenames']
     list_of_filemaps = indexOfTablets[series][i]['file_maps']
