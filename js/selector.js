@@ -1,10 +1,15 @@
 $( document ).ready(function() {
   $.getJSON('data/index.json',function(indexOfTablets){   
     //getButtons(indexOfTablets); 
-    getSeries2(indexOfTablets);  
-    if (window.location.href.indexOf("?query") > -1) {
-        alert("your url contains the name franky");
-      }
+    getSeries2(indexOfTablets);
+    if (window.location.href.indexOf("?query=") > -1) {
+      var url = window.location.href; 
+      var values= url.split('?query=');
+      console.log(values)
+      $('#series-list').empty()
+      $('#series-codes').empty()
+      showTablet(values[1]);
+    }
 })})
 
 /*function getButtons(indexOfTablets) {
