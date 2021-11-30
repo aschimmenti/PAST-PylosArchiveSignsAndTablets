@@ -2,6 +2,9 @@ $( document ).ready(function() {
   $.getJSON('data/index.json',function(indexOfTablets){   
     //getButtons(indexOfTablets); 
     getSeries2(indexOfTablets);  
+    if (window.location.href.indexOf("?query") > -1) {
+        alert("your url contains the name franky");
+      }
 })})
 
 /*function getButtons(indexOfTablets) {
@@ -25,7 +28,7 @@ function getSeries2(indexOfTablets) {
   $.each(indexOfTablets, function(key, value) {
     $('#series-index-list').append(`
     <li style="list-style: none;" id="${key}SeriesList"> <a class="cool-link" onclick="addSeriesTablets('${key}')">
-    Pylos ${key} Series
+    Pylos ${key} Series <span id="${key}-backslash"></span>
     </a>
     </li>`)
     $('#rowdeck').append(`
@@ -55,26 +58,30 @@ function addSeriesTablets(value) {
   $('#form-search').empty()
   $('#series-list').empty()
   $('#series-codes').empty()
+  $("[id*='-tablet-li-elements']").empty()
+  $("[id*='-backslash']").empty()
+  //$(`${value}-tablet-li-elements`).empty()
   $.getJSON('data/index.json',function(indexOfTablets){
     list_of_codes = indexOfTablets[value]
+    $('.seriesTitle').text(`${value} Series`)
     $('#series-codes').append('<div class="card-deck"><div id="rowdeck-series" class="row"></div></div>')
     $('#rowdeck-series').append(`
     <div class="col-lg-4 col-md-6 col-sm-12">
     <div class="card mb-2 border-0">
     <div class="card-body text-center">
-    <img class="card-img-top img-responsive tablet-card-size" src="images/thumbnail${value}.png" alt="Card image cap">
-      <h5 class="card-title"> Series ${value} </h5>
+    <img class="card-img-top img-responsive tablet-card-size" src="images/arrow-back.png" alt="Card image cap">
+      <h5 class="card-title"></h5>
       <a onclick="window.location.reload();" class="btn btn-outline-secondary">GO BACK</a>
     </div>
     </div></div>`)
      
-    $(`#${value}SeriesList`).text(`Pylos ${value} Series /`)
-    $(`#${value}SeriesList`).append(`<ul id="tablet-li-elements"></ul>`)
+    $(`#${value}-backslash`).text('/')
+    $(`#${value}SeriesList`).append(`<ul id="${value}-tablet-li-elements"></ul>`)
     $.each( list_of_codes, function( key, val ) {
       if ( (key === 'category' ) || (key === 'shape' ) || (key === 'series-description' ) || (key === 'author' ) || (key === 'provenance' )) {
         return;
       }
-      $('#tablet-li-elements').append(`<li style="list-style: none;"><a onclick="showTablet('${key}')">${key.replace('_', ' ')}</a></li>`)
+      $(`#${value}-tablet-li-elements`).append(`<li style="list-style: none;"><a onclick="showTablet('${key}')">${key.replace('_', ' ')}</a></li>`)
       $('#rowdeck-series').append(
       `<div class="col-lg-4 col-md-6 col-sm-12">
       <div class="card mb-2 border-0">
