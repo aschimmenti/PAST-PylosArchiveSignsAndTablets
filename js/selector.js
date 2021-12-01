@@ -187,7 +187,7 @@ function showTablet(i) {
     $("#tabletShower").append(tablet)
     $('#form-div').append('<a id="back-btn" class="btn px-0 mx-0 my-4" style="font-size:larger"></a>')
     $("#back-btn")
-      .html('CLEAN RESULTS')
+      .html('<i class="fa fa-times" aria-hidden="true"></i> CLEAN RESULTS')
       .attr("onclick", "window.location.reload()")
   });}
 
