@@ -185,8 +185,8 @@ function showTablet(i) {
     $("#tabletTitle").text('PYLOS ' + i.replace('_', ' '))
     tablet = '<img style="width:50vw;" src="data/' + i  +"/" + i + '.jpg">'
     $("#tabletShower").append(tablet)
-    $('#form-div').append('<a id="back-btn" class="btn px-0 mx-0 my-4" style="font-size:larger"></a>')
-    $("#back-btn")
+    $('#form-div').append('<a id="back-btn-2" class="btn px-0 mx-0 my-4" style="font-size:larger"></a>')
+    $("#back-btn-2")
       .html('<i class="fa fa-times" aria-hidden="true"></i> CLEAN RESULTS')
       .attr("onclick", "window.location.reload()")
   });}
@@ -201,6 +201,10 @@ function showTablet(i) {
     var data = document.getElementById("data");
     matches = []
     $('#series-match').empty()
+    if(document.getElementById("testName").checked) {
+      document.getElementById('testNameHidden').disabled = true;
+      console.log('true')
+    }
     $.getJSON('data/result2.json',function(index_of_transcriptions){
       $.each(index_of_transcriptions, function(key, value) {
         $.each(value, function(idx, str) {

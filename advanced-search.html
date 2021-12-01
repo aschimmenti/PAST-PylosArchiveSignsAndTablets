@@ -54,10 +54,30 @@
     <div class="container-fluid" width="100%">
         <div class="row">
             <div id="form-div" class="col-lg-3 col-md-4 col-sm-4 col">
-                <form action="" id="form" onsubmit="sConsole(event)">
-                    <input type="text" name="data" id="data">
-                    <button type="submit">Submit</button>
+                <div class="row mb-3">
+                    <form action="" id="form" onsubmit="sConsole(event)">
+                        <input type="text" name="data" id="data">
+                        <button type="submit">Submit</button>
+                        <input id='testName' type='checkbox' value='Yes' name='testName'>
+                        <input id='testNameHidden' type='hidden' value='No' name='testName'></form>
+                    </form>
+                </div>
+<!--                <div class="row mb-3">
+                    <form action="" id="form-2" onsubmit="sConsole(event)">
+                        <input type="text" name="data" id="data">
+                        <button type="submit">Submit</button>
+                        <input id='testName' type='checkbox' value='Yes' name='testName'>
+                        <input id='testNameHidden' type='hidden' value='No' name='testName'>                    </form>
+                </div>
+                <div class="row mb-3">
+                    <form action="" id="form-3" onsubmit="sConsole(event)">
+                        <input type="text" name="data" id="data">
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>-->
+
             </div>
+
             <div class="col-lg-9 col-md-8 col-sm-8 col">
                 <div id="series-match"></div>
                 <div class="tabletTitleDiv"></div>
