@@ -150,6 +150,7 @@ function showTablet(i) {
     content = []
     $.each(list_of_filemaps, function(idxmap, tm){ //number of rows of the chosen tablet 
       rows.add(tm[1])
+      console.log(rows)
     })
     urows = [...new Set (rows)];
     content.push('<ul>')
@@ -162,7 +163,7 @@ function showTablet(i) {
           row_at_n.push("<figure style='display:inline-block;'><img style='width:50px;' src='data/" + i + "/LB_" + i + "_r" + row_n + "_" + t[2] + "_" + t[3] + ".png'><figcaption>" + t[3] + "</figcaption></figure>")
         }
         content.push(row_at_n.join(""))
-        
+        console.log(content)
       });
       content.push('</li>')
     })

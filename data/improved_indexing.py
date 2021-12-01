@@ -8,8 +8,11 @@ import glob
 root_folder = r'./'
 series = []
 for root, dirnames, filenames in os.walk('./'):
-    for d in dirnames: 
-        series.append(d)
+    for d in dirnames:
+        if 'thumbnails' in d: 
+            continue 
+        if '_' in d: 
+            series.append(d)
     break
 print(series)
 
@@ -34,6 +37,8 @@ for s in series:
             for file in files: 
                 if '.jpg' in file: 
                     continue
+                if '.tif' in file:
+                    continue
                 #print(file)
                 print(file)
                 tablet = re.findall(r'LB_([A-Z][a-z]_[\d]{1,4}[a-z]?)_', file)[0]
@@ -41,10 +46,11 @@ for s in series:
                 row = re.findall(r'_r([\d]{1,2})_', file)[0]
                 #print(row)
                 index = re.findall(r'_r[\d]{1,2}_([\d]{1,2})_', file)[0]
-                #print(index)
+                #print(index) 
                 sign = re.findall(r"_r[\d]{1,2}_[\d]{1,2}_(.*).png$", file)[0]
                 file_map = (tablet, int(row), int(index), sign)
                 file_map_list.append(file_map)
+                print(file_map_list)
                 print(dirpath, file_map)
             list_of_filenames = []
             for file in files: 

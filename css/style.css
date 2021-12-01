@@ -225,9 +225,6 @@ figure img:active {
 transform: scale(2);
 } 
   
-.no-overflow {
-    overflow-x: hidden;
-}
 
 .document-card-size img {
     max-width: 60%;
