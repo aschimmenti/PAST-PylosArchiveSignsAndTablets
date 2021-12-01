@@ -115,14 +115,23 @@ function addSeriesTablets(value) {
 function addSeriesMatches(matches) {
   $('#series-match').empty()
   $.getJSON('data/index.json',function(indexOfTablets){
-    $('#series-match').append("<div id='btn-g' class='btn-group'></div>")
+    $('#series-match').append('<div class="card-deck"><div id="rowdeck-series" class="row"></div></div>')     
     var setcontent = new Set()
     $.each(matches, function(idx, val) {
-      setcontent.add('<button type="button" class="btn btn-danger" onclick="showTablet(\'' +val+ '\')">Match inside ' + val + '</button>' )
+      setcontent.add( 
+        `<div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="card mb-2 border-0">
+        <div class="card-body text-center">
+        <img class="card-img-top img-responsive tablet-card-size" src="data/thumbnails/${val}.jpg" alt="Card image cap">
+          <h5 class="card-title">${val.replace('_', ' ')}</h5>
+          <p class="card-text"></p>
+          <a onclick="showTablet('${val}')" class="btn btn-outline-secondary">SHOW TABLET</a>
+        </div>
+        </div></div>`
+        )
     })
     let content = Array.from(setcontent);
-    console.log(content)
-    $('#btn-g').append(content.join(''))
+    $('#rowdeck-series').append(content.join(''))
   })
 }
 
@@ -163,7 +172,6 @@ function showTablet(i) {
           row_at_n.push("<figure style='display:inline-block;'><img style='width:50px;' src='data/" + i + "/LB_" + i + "_r" + row_n + "_" + t[2] + "_" + t[3] + ".png'><figcaption>" + t[3] + "</figcaption></figure>")
         }
         content.push(row_at_n.join(""))
-        console.log(content)
       });
       content.push('</li>')
     })
@@ -175,8 +183,12 @@ function showTablet(i) {
     /*page_title = $("#tabletTitle").text()
     $("#tabletTitle").text(new_title = page_title + ' - ' + i.replace('_', ' '))*/
     $("#tabletTitle").text('PYLOS ' + i.replace('_', ' '))
-    tablet = '<img data-action="zoom" style="width:50vw;" src="data/' + i  +"/" + i + '.jpg">'
+    tablet = '<img style="width:50vw;" src="data/' + i  +"/" + i + '.jpg">'
     $("#tabletShower").append(tablet)
+    $('#form-div').append('<a id="back-btn" class="btn px-0 mx-0 my-4" style="font-size:larger"></a>')
+    $("#back-btn")
+      .html('CLEAN RESULTS')
+      .attr("onclick", "window.location.reload()")
   });}
 
 
@@ -184,6 +196,7 @@ function showTablet(i) {
     $("#signsShower").empty()
     $("#notes").empty()
     $("#tabletShower").empty()
+    $("#tabletTitle").empty()
     event.preventDefault();
     var data = document.getElementById("data");
     matches = []
@@ -201,9 +214,3 @@ function showTablet(i) {
       })
   }
 
-
-function form(input_text) {
-  $.each(indexOfTablets, function( key, val ) {
-    if (input_text in indexOfTablets[key]['transcription']) {
-      console.log(input_text)
-    }})}

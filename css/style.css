@@ -204,11 +204,12 @@ border: 1px dotted gray;
 padding: 5px;
 margin: 15px; /* adjust as needed */
 }
+
 figure img {
 vertical-align: top;
-cursor: -moz-zoom-in; 
+/*cursor: -moz-zoom-in; 
 cursor: -webkit-zoom-in; 
-cursor: zoom-in;
+cursor: zoom-in;*/
 margin: 5px;
 
 }
@@ -217,13 +218,13 @@ border: 1px dotted #4D62B5;
 text-align: center;
 }
 
-figure img:active {  
+/*figure img:active {  
 -webkit-transform: scale(1.2);
 -moz-transform: scale(1.2);
 -o-transform: scale(1.2);
--ms-transform: scale(1.2); /* IE 9 */ 
+-ms-transform: scale(1.2); 
 transform: scale(2);
-} 
+} */
   
 
 .document-card-size img {
