@@ -180,7 +180,6 @@ function showTablet(i) {
     content = []
     $.each(list_of_filemaps, function(idxmap, tm){ //number of rows of the chosen tablet 
       rows.add(tm[1])
-      console.log(rows)
     })
     urows = [...new Set (rows)];
     content.push('<ul>')
@@ -190,7 +189,7 @@ function showTablet(i) {
         row_at_n = []
         
         if (row_n == t[1]) { 
-          row_at_n.push("<figure style='display:inline-block;'><img style='width:50px;' src='data/" + i + "/LB_" + i + "_r" + row_n + "_" + t[2] + "_" + t[3] + ".png'><figcaption>" + t[3] + "</figcaption></figure>")
+          row_at_n.push("<figure style='display:inline-block;'><img onClick='attestazioni(" + '"' + t[3] + '","' + i + '"' + ")' style='width:50px;' src='data/" + i + "/LB_" + i + "_r" + row_n + "_" + t[2] + "_" + t[3] + ".png'><figcaption>" + t[3] + "</figcaption></figure>")
         }
         content.push(row_at_n.join(""))
       });
@@ -233,10 +232,42 @@ function showTablet(i) {
         })
       })
       if (matches.length < 1) {
-        addAlert(data.value)
+        addAlert(data)
       }
       else {
       addSeriesMatches(matches)
       }})
   }
 
+  function attestazioni(sign, i) {
+    series = i.slice(0,2)
+    list_of_matching_signs = []
+    $.getJSON('data/index.json',function(indexOfTablets){
+      $.each(indexOfTablets, function(key, value) {
+        $.each(Object.keys(value), function(key2, value2)
+        {
+          list_filemap = indexOfTablets[key][value2]['file_maps']
+          $.each(list_filemap, function (idx, filemap) {
+            if (sign === filemap[3].toString()) {
+              list_of_matching_signs.push(filemap)
+            }
+          })
+        })
+      })
+      console.log(list_of_matching_signs)
+      showAttestazioni(sign, list_of_matching_signs)
+    })
+    
+}
+
+  function showAttestazioni (sign, filemap) {
+    $('#attestazioni').empty()
+    content = []
+    $.each(filemap, function (idx, fm){
+    content.push("<figure style='display:inline-block;'><img style='max-width:50px; max-height:50px' src='data/" + fm[0] + "/LB_" + fm[0] + "_r" + fm[1] + "_" + fm[2] + "_" + fm[3] + ".png'><figcaption>" + fm[0] + "</figcaption></figure>")
+    })
+    console.log(content)
+    $('#attestazioni').append(content.join(''))
+    $('#attestazioni').prepend('<h5>Tablets with ' + sign +'</h5>')
+
+  }
