@@ -127,7 +127,7 @@ function addSeriesMatches(matches) {
         <img class="card-img-top img-responsive tablet-card-size" src="data/thumbnails/${val}.jpg" alt="Card image cap">
           <h5 class="card-title">${val.replace('_', ' ')}</h5>
           <p class="card-text"></p>
-          <a onclick="showTablet('${val}')" class="btn btn-outline-secondary">SHOW TABLET</a>
+          <a onclick="showTablet('${val}');document.getElementById('tabletTitle').scrollIntoView();" class="btn btn-outline-secondary">SHOW TABLET</a>
         </div>
         </div></div>`
         )
