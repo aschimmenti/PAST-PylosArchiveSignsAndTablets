@@ -167,7 +167,7 @@ a, .nav-brand-acr, .nav-brand-subtitle, .nav-link {
     max-height: 10vh;
     }
 
-.tablets-index li:not(:first-child):before {
+.tablets-index li:before {
         display: inline-block;
         content: "-";
         width: 1em;
@@ -175,6 +175,8 @@ a, .nav-brand-acr, .nav-brand-subtitle, .nav-link {
         font-size: larger;
     
 }
+
+
 .images {
     margin: 30px 25px;
     white-space: nowrap;

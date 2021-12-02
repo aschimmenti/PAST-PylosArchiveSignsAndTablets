@@ -82,7 +82,7 @@ function addSeriesTablets(value) {
       if ( (key === 'category' ) || (key === 'shape' ) || (key === 'series-description' ) || (key === 'author' ) || (key === 'provenance' )) {
         return;
       }
-      $(`#${value}-tablet-li-elements`).append(`<li style="list-style: none;"><a onclick="showTablet('${key}')">${key.replace('_', ' ')}</a></li>`)
+      $(`#${value}-tablet-li-elements`).append(`<li style="list-style: none;"><a class="cool-link" onclick="showTablet('${key}')">${key.replace('_', ' ')}</a></li>`)
       $('#rowdeck-series').append(
       `<div class="col-lg-4 col-md-6 col-sm-12">
       <div class="card mb-2 border-0">
@@ -140,6 +140,20 @@ function addSeriesMatches(matches) {
       .html('<i class="fa fa-times" aria-hidden="true"></i> CLEAN RESULTS')
       .attr("onclick", "window.location.reload()")
   })
+}
+
+function addAlert(value) {
+  $('#series-list').empty()
+  $('#series-match').empty()
+  $('#series-codes').empty()
+  $('#series-match').prepend('<a id="back-btn-2" class="btn px-0 mx-0 my-4" style="font-size:larger"></a>')
+  $("#back-btn-2")
+    .html('<i class="fa fa-times" aria-hidden="true"></i> CLEAN RESULTS')
+    .attr("onclick", "window.location.reload()")
+  $('#series-match').append(`<div class="alert alert-danger" role="alert">
+  Your search '${value}' did not match any documents.
+</div>
+`)
 }
 
 function goBack(series) {
@@ -218,7 +232,11 @@ function showTablet(i) {
         }
         })
       })
-      addSeriesMatches(matches)        
-      })
+      if (matches.length < 1) {
+        addAlert(data.value)
+      }
+      else {
+      addSeriesMatches(matches)
+      }})
   }
 
