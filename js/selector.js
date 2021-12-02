@@ -113,7 +113,9 @@ function addSeriesTablets(value) {
 }*/
 
 function addSeriesMatches(matches) {
+  $('#series-list').empty()
   $('#series-match').empty()
+  $('#series-codes').empty()
   $.getJSON('data/index.json',function(indexOfTablets){
     $('#series-match').append('<div class="card-deck"><div id="rowdeck-series" class="row"></div></div>')     
     var setcontent = new Set()
@@ -132,6 +134,11 @@ function addSeriesMatches(matches) {
     })
     let content = Array.from(setcontent);
     $('#rowdeck-series').append(content.join(''))
+    $('#series-match').prepend('<a id="back-btn-2" class="btn px-0 mx-0 my-4" style="font-size:larger"></a>')
+    $("#back-btn").empty()
+    $("#back-btn-2")
+      .html('<i class="fa fa-times" aria-hidden="true"></i> CLEAN RESULTS')
+      .attr("onclick", "window.location.reload()")
   })
 }
 
@@ -186,10 +193,10 @@ function showTablet(i) {
     imgSource = `data/${i}/${i}.jpg`
     tablet = `<a href=${imgSource} target="_blank"><img style="width:50vw;" src="${imgSource}"/></a>`
     $("#tabletShower").append(tablet)
-    $('#form-div').append('<a id="back-btn-2" class="btn px-0 mx-0 my-4" style="font-size:larger"></a>')
+/*    $('#series-matches').append('<a id="back-btn-2" class="btn px-0 mx-0 my-4" style="font-size:larger"></a>')
     $("#back-btn-2")
       .html('<i class="fa fa-times" aria-hidden="true"></i> CLEAN RESULTS')
-      .attr("onclick", "window.location.reload()")
+      .attr("onclick", "window.location.reload()")*/
   });}
 
 
@@ -202,10 +209,6 @@ function showTablet(i) {
     var data = document.getElementById("data");
     matches = []
     $('#series-match').empty()
-    if(document.getElementById("testName").checked) {
-      document.getElementById('testNameHidden').disabled = true;
-      console.log('true')
-    }
     $.getJSON('data/result2.json',function(index_of_transcriptions){
       $.each(index_of_transcriptions, function(key, value) {
         $.each(value, function(idx, str) {
