@@ -183,7 +183,8 @@ function showTablet(i) {
     /*page_title = $("#tabletTitle").text()
     $("#tabletTitle").text(new_title = page_title + ' - ' + i.replace('_', ' '))*/
     $("#tabletTitle").text('PYLOS ' + i.replace('_', ' '))
-    tablet = '<img style="width:50vw;" src="data/' + i  +"/" + i + '.jpg">'
+    imgSource = `data/${i}/${i}.jpg`
+    tablet = `<a href=${imgSource} target="_blank"><img style="width:50vw;" src="${imgSource}"/></a>`
     $("#tabletShower").append(tablet)
     $('#form-div').append('<a id="back-btn-2" class="btn px-0 mx-0 my-4" style="font-size:larger"></a>')
     $("#back-btn-2")

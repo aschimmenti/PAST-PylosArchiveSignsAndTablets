@@ -162,7 +162,8 @@ function showTablet(i) {
     /*page_title = $("#tabletTitle").text()
     $("#tabletTitle").text(new_title = page_title + ' - ' + i.replace('_', ' '))*/
     $("#tabletTitle").text('Pylos ' + i.replace('_', ' '))
-    tablet = '<img data-action="zoom" style="width:100%;" src="data/' + i  +"/" + i + '.jpg">'
+    imgSource = `data/${i}/${i}.jpg`
+    tablet = `<a href=${imgSource} target="_blank"><img data-action="zoom" style="width:100%;" src="${imgSource}"/></a>`
     $("#tabletShower").append(tablet)
   });}
 
