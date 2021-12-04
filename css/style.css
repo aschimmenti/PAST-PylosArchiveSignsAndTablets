@@ -207,6 +207,10 @@ padding: 5px;
 margin: 15px; /* adjust as needed */
 }
 
+figure:hover {
+    border: 1px solid gray
+}
+
 figure img {
 vertical-align: top;
 /*cursor: -moz-zoom-in; 

@@ -189,7 +189,7 @@ function showTablet(i) {
         row_at_n = []
         
         if (row_n == t[1]) { 
-          row_at_n.push("<figure style='display:inline-block;'><img onClick='attestazioni(" + '"' + t[3] + '","' + i + '"' + ")' style='width:50px;' src='data/" + i + "/LB_" + i + "_r" + row_n + "_" + t[2] + "_" + t[3] + ".png'><figcaption>" + t[3] + "</figcaption></figure>")
+          row_at_n.push("<figure style='display:inline-block; cursor:pointer;'><img onClick='attestazioni(" + '"' + t[3] + '","' + i + '"' + ")' style='width:50px;' src='data/" + i + "/LB_" + i + "_r" + row_n + "_" + t[2] + "_" + t[3] + ".png'><figcaption>" + t[3] + "</figcaption></figure>")
         }
         content.push(row_at_n.join(""))
       });
