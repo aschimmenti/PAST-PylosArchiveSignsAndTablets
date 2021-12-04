@@ -26,6 +26,7 @@ $( document ).ready(function() {
 */
 
 function getSeries2(indexOfTablets) {
+  $('#attestazioni').empty()
   $('#series-list').empty()
   $('#series-index-list').empty()
   $('#series-list').append('<div class="card-deck"><div id="rowdeck" class="row"></div></div>')
@@ -59,10 +60,12 @@ function getSeries2(indexOfTablets) {
 </div>*/
 
 function addSeriesTablets(value) {
+  $('#attestazioni').empty()
   $('#series-match').empty()
   $('#form-search').empty()
   $('#series-list').empty()
   $('#series-codes').empty()
+  $('#tabletShower, #signsShower, #notes').empty()
   $("[id*='-tablet-li-elements']").empty()
   $("[id*='-backslash']").empty()
   //$(`${value}-tablet-li-elements`).empty()
@@ -113,6 +116,7 @@ function addSeriesTablets(value) {
 }*/
 
 function addSeriesMatches(matches) {
+  $('#attestazioni').empty()
   $('#series-list').empty()
   $('#series-match').empty()
   $('#series-codes').empty()
@@ -214,6 +218,7 @@ function showTablet(i) {
 
 
   function sConsole(event) {
+    $('#attestazioni').empty()
     $("#signsShower").empty()
     $("#notes").empty()
     $("#tabletShower").empty()
@@ -269,5 +274,5 @@ function showTablet(i) {
     console.log(content)
     $('#attestazioni').append(content.join(''))
     $('#attestazioni').prepend('<h5>Tablets with ' + sign +'</h5>')
-
+    document.getElementById('#attestazioni').scrollIntoView();
   }
