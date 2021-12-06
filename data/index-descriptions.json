@@ -1,0 +1,65 @@
+{
+    "Aa": {
+        "category": "Personell",
+        "shape": "Palm leaf shape",
+        "series-description": "The Aa series is made up of about fifty 'palm leaf' shaped tablets; it is characterized by the logogram <i>*104</i> MUL and mostly records groups of people, of both sexes, and their supervisors, designated by the initials <i>DA</i> and <i>TA</i>. Some women are identified by their job or by an ethnonym.",
+        "author":"1,4",
+        "provenance":"Archives Complex (Room 7, Room 8)"
+    },  
+    "Ab":{
+        "category": "Personell",
+        "shape": "Palm leaf shape",
+        "series-description": "The Ab series tablets record the rations intended for women and young people registered in the Aa series. The texts are characterized by the presence of the logograms * 102 (MUL), * 120 (GRA) and NI 'figs'. Various nouns of the professions related to fabric processing are recorded.",
+        "author":"21",
+        "provenance":"Archives Complex (Room 7, Room 8)"
+    },
+    "Ac":{
+        "category": "Personell",
+        "shape":"Palm leaf shape",
+        "series-description": "The Ac series consists of 9 tablets characterized by the formula 'Toponym / Ethnonym + VIR + digit + <i>o-pe-ro</i> + VIR + digit'. It is thought that the districts of the Hither Province register the obligation to supply a number of men to the palace. <i>o-pe-ro</i> marks individuals not yet made available to the palace.",
+        "author":"Unknown",
+        "provenance":"Room 99"
+    },
+    "Ad":{
+        "category": "Personell",
+        "shape":"Palm leaf shape",
+        "series-description": "The Ad series consists of about forty texts characterized by the VIR logogram and the term <i>ko-wo</i> / <i>korwoi</i>, 'boys'. The recurring formula of the series is: 'Toponym + female title (gen.) + <i>ko-wo</i> + VIR + digit + <i>ko-wo</i> + digit'.",
+        "author":"23",
+        "provenance":"Archives Complex (Room 7, Room 8)"
+    },
+    "Ae":{
+        "category": "Personell",
+        "shape":"Palm leaf shape",
+        "series-description": "The Ae series consists of about twenty tablets characterized by the logograms * 101 VIR and * 102 MUL. The individuals registered there are linked to the sphere of worship, others active in breeding, others belong to artisanal groups.",
+        "author":"Unknown",
+        "provenance":"Archives Complex (Room 8), Throne Room (Room 6)"
+    },
+    "An":{
+        "category": "Personell",
+        "shape":"Page shape",
+        "series-description": "The An series consists of about fifty tablets listing groups of men, such as ivory carvers, goldsmiths, bow makers, carpenters, potters, saddlers, bakers, etc. In some cases, people came from peripheral locations to work in the workshops of the palace center. J.-P. Olivier, on the basis of the etymological interpretation of terms such as <i>mi-ka-ta</i>, literally 'employee at the bar' (cf. mignumi) and <i>pu-ko-wo</i>, literally 'person in charge of lighting the fire' (cf. purkaeus) has proposed to see some individuals as 'shrine attendants'. Some tablets in the An series also record peasants being recruited as fleet rowers. Five tablets of this series are the so-called '<i>o-ka</i> tablets' (An 519, 654, 656, 657 and 661), by the hand of the scribe 1. The term <i>o-ka</i> occurs in them, interpretable as orkha, 'military command' (cf. arxé) or as okha, 'possession' (cf. exo).",
+        "author":"Unknown",
+        "provenance":"Archives Complex (Room 7, Room 8), N.-E. Building (Room 99)"
+    },
+    "Ea":{
+        "category": "Land Tenure",
+        "shape":"tba",
+        "series-description": "The Ea series, like all the tablets of the E series, contains land texts, a sort of 'cadastral' archive inside the palace.",
+        "author":"tba",
+        "provenance":"tba"
+    },
+    "Gn":{
+        "category": "Wine",
+        "shape":"tba",
+        "series-description": "The Gn series includes two tablets, both relating to wine. For example, the tablet Gn 428, according to Killen, could have been written in a cult-like context and the recorded distributions of wine could have to do with a religious-type holiday.",
+        "author":"tba",
+        "provenance":"tba"
+    },
+    "Ta":{
+        "category": "Furniture",
+        "shape": "Palm leaf shape",
+        "series-description": "The Ta series includes 13 tablets, which constitute a unique and singular document, a detailed inventory of part of the furniture of the Pylos palace, drawn up by the scribe H2 on the occasion of a ceremony.",
+        "author":"H2",
+        "provenance":"Archives Comples (Room 7, square 83)"
+    }
+}

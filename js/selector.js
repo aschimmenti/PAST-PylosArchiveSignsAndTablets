@@ -41,7 +41,7 @@ function getSeries2(indexOfTablets) {
     <div class="col-lg-4 col-md-6 col-sm-12">
       <div class="card border-0 document-card-size">
         <div class="card-body text-center">
-        <img class="card-img-top img-responsive" src="images/thumbnail${key}.png" alt="Card image cap">
+        <img onclick="addSeriesTablets('${key}')" class="card-img-top img-responsive" src="images/thumbnail${key}.png" alt="Card image cap">
           <h5 class="card-title">Pylos ${key} Series</h5>
           <a onclick="addSeriesTablets('${key}')" class="btn btn-outline-secondary">SHOW SERIES</a>
         </div>
@@ -81,13 +81,25 @@ function addSeriesTablets(value) {
     $('#series-codes').append('<div class="card-deck"><div id="rowdeck-series" class="row"></div></div>')     
     $(`#${value}-backslash`).text('/')
     $(`#${value}SeriesList`).append(`<ul id="${value}-tablet-li-elements"></ul>`)
+    $.getJSON('data/index-descriptions.json',function(indexDescriptions){
+      console.log(indexDescriptions)
+      console.log(value)
+      $('#series-description').empty()
+      $('#series-description').append(`<ul>
+      <li>Category: ${indexDescriptions[value]['category']}</li>
+      <li>Shape: ${indexDescriptions[value]['shape']}</li>
+      <li>Description: ${indexDescriptions[value]['series-description']}</li>
+      <li>Author: ${indexDescriptions[value]['author']}</li>
+      <li>Provenance: ${indexDescriptions[value]['provenance']}</li>
+      </ul>`)
+    })
     $.each( list_of_codes, function( key, val ) {
       if ( (key === 'category' ) || (key === 'shape' ) || (key === 'series-description' ) || (key === 'author' ) || (key === 'provenance' )) {
         return;
       }
       $(`#${value}-tablet-li-elements`).append(`<li style="list-style: none;"><a class="cool-link" onclick="showTablet('${key}')">${key.replace('_', ' ')}</a></li>`)
       $('#rowdeck-series').append(
-      `<div class="col-lg-4 col-md-6 col-sm-12">
+      `<div class="col-lg-6 col-md-6 col-sm-12">
       <div class="card mb-2 border-0">
       <div class="card-body text-center">
       <img class="card-img-top img-responsive tablet-card-size" src="data/thumbnails/${key}.jpg" alt="Card image cap">
