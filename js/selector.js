@@ -131,6 +131,7 @@ function addSeriesMatches(matches) {
   $('#attestazioni').empty()
   $('#series-list').empty()
   $('#series-match').empty()
+  $('#series-description').empty()
   $('#series-codes').empty()
   $.getJSON('data/index.json',function(indexOfTablets){
     $('#series-match').append('<div class="card-deck"><div id="rowdeck-series" class="row"></div></div>')     
@@ -174,12 +175,14 @@ function addAlert(value) {
 
 function goBack(series) {
   $('#tabletShower, #signsShower, #notes').empty();
+  $('#series-description').empty()
   $("#tabletTitle").text("Documents");
   addSeriesTablets(series);
 }
 
 
 function showTablet(i) {
+  $('#series-description').empty()
   $("#signsShower").empty()
   $("#tabletTitle").text("Documents")
   $("#notes").empty()
@@ -234,6 +237,7 @@ function showTablet(i) {
     $("#signsShower").empty()
     $("#notes").empty()
     $("#tabletShower").empty()
+    $('#series-description').empty()
     $("#tabletTitle").empty()
     event.preventDefault();
     var data = document.getElementById("data");
