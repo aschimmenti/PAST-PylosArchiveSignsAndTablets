@@ -188,6 +188,7 @@ function showTablet(i) {
   $("#notes").empty()
   $("#tabletShower").empty()
   $('#series-codes').empty()
+  $('#attestazioni').empty()
   series = i.slice(0,2)
   $("#back-btn")
     .html('<i class="fas fa-chevron-left"></i> Back to Tablets')
@@ -285,7 +286,7 @@ function showTablet(i) {
     $('#attestazioni').empty()
     content = []
     $.each(filemap, function (idx, fm){
-    content.push("<figure style='display:inline-block;'><img style='max-width:50px; max-height:50px' src='data/" + fm[0] + "/LB_" + fm[0] + "_r" + fm[1] + "_" + fm[2] + "_" + fm[3] + ".png'><figcaption>" + fm[0] + "</figcaption></figure>")
+    content.push(`<figure style='display:inline-block;'><img style='max-width:50px; max-height:50px' onclick="showTablet('${fm[0]}')" src='data/${fm[0]}/LB_${fm[0]}_r${fm[1]}_${fm[2]}_${fm[3]}.png'><figcaption>${fm[0].replace('_', ' ')}<br>row:${fm[1]} <br>idx: ${fm[2]}</figcaption></figure>`)
     })
     console.log(content)
     $('#attestazioni').append(content.join(''))

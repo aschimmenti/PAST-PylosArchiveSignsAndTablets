@@ -6,6 +6,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title></title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     </head>
 <body>
 <style>
@@ -19,19 +23,22 @@
     <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
-    <script src="barchart.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="barchart.js"></script>
+
     <!-- HTML -->
-    <button onclick="getChart('Asthma')" class="dropdown-item" type="button">Asthma</button>
-    <button onclick="getChart('Cardio')" class="dropdown-item" type="button">Cardiovascular diseases</button>
-    <button onclick="getChart('Diabetes')" class="dropdown-item" type="button">Diabetes Mellitus 2</button>
-    <button onclick="getChart('Iodine')" class="dropdown-item" type="button">Iodine deficiency</button>
-    <button onclick="getChart('Liver')" class="dropdown-item" type="button">Liver cancer incidence</button>
-    <button onclick="getChart('Protein')" class="dropdown-item" type="button">Protein deficiency</button>
-    <button onclick="getChart('VitaminA')" class="dropdown-item" type="button">Vitamin A deficiency</button>
+    <div id="nations-button"></div>
     <div id="chartparent"></div>
 
 </body>
 </html>
+
+<!--
+    scegli nazione - > barchart che mostra le malattie per ogni anno coi valori
+-->
+
