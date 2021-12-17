@@ -73,7 +73,7 @@ function addSeriesTablets(value) {
     list_of_codes = indexOfTablets[value]
     $('.seriesTitle').text(`${value} Series`)
     if ($('#back-btn').length === 0) {
-        $(`<a id="back-btn" class="btn px-0 mx-0 my-4" style="font-size:larger"></a>`).insertBefore("#tabletTitle")    
+        $('#go-back-button').append(`<a id="back-btn" class="btn px-0 mx-0 my-4" style="font-size:larger"></a>`)    
     }
     $("#back-btn")
       .html('<i class="fas fa-chevron-left"></i> Back to Series')
@@ -85,13 +85,13 @@ function addSeriesTablets(value) {
       console.log(indexDescriptions)
       console.log(value)
       $('#series-description').empty()
-      $('#series-description').append(`<ul>
-      <li>Category: ${indexDescriptions[value]['category']}</li>
-      <li>Shape: ${indexDescriptions[value]['shape']}</li>
-      <li>Description: ${indexDescriptions[value]['series-description']}</li>
-      <li>Author: ${indexDescriptions[value]['author']}</li>
-      <li>Provenance: ${indexDescriptions[value]['provenance']}</li>
-      </ul>`)
+      $('#series-description').append(`<div id="descriptions"> 
+      <p>Category: ${indexDescriptions[value]['category']} ${iconizeMetadata(`${indexDescriptions[value]['category']}`)}</p>
+      <p>Shape: ${indexDescriptions[value]['shape']}</p>
+      <p>Description: ${indexDescriptions[value]['series-description']}</p>
+      <p>Scribe: ${indexDescriptions[value]['author']}</p>
+      <p>Provenance: ${indexDescriptions[value]['provenance']}</p>
+      </div>`)
     })
     $.each( list_of_codes, function( key, val ) {
       if ( (key === 'category' ) || (key === 'shape' ) || (key === 'series-description' ) || (key === 'author' ) || (key === 'provenance' )) {
@@ -99,10 +99,10 @@ function addSeriesTablets(value) {
       }
       $(`#${value}-tablet-li-elements`).append(`<li style="list-style: none;"><a class="cool-link" onclick="showTablet('${key}')">${key.replace('_', ' ')}</a></li>`)
       $('#rowdeck-series').append(
-      `<div class="col-lg-6 col-md-6 col-sm-12">
+      `<div class="col-lg-12 col-md-12 col-sm-12">
       <div class="card mb-2 border-0">
       <div class="card-body text-center">
-      <img class="card-img-top img-responsive tablet-card-size" src="data/thumbnails/${key}.jpg" alt="Card image cap">
+      <img class="card-img-top img-responsive tablet-card-size" src="data/${key}/${key}.jpg" alt="Card image cap">
         <h5 class="card-title">${key.replace('_', ' ')}</h5>
         <p class="card-text"></p>
         <a onclick="showTablet('${key}')" class="btn btn-outline-secondary">SHOW TABLET</a>
@@ -112,6 +112,13 @@ function addSeriesTablets(value) {
     });
 })}
 
+
+function iconizeMetadata(input) {
+  console.log(input)
+  if (input === "Furniture") {
+    return '<i class="fa fa-th" aria-hidden="true"></i>'
+  }
+}
 
 
 /*function addSeriesMatches(matches) {
@@ -141,7 +148,7 @@ function addSeriesMatches(matches) {
         `<div class="col-lg-4 col-md-6 col-sm-12">
         <div class="card mb-2 border-0">
         <div class="card-body text-center">
-        <img class="card-img-top img-responsive tablet-card-size" src="data/thumbnails/${val}.jpg" alt="Card image cap">
+        <img class="card-img-top img-responsive tablet-card-size" src="data/${val}/${val}.jpg" alt="Card image cap">
           <h5 class="card-title">${val.replace('_', ' ')}</h5>
           <p class="card-text"></p>
           <a onclick="showTablet('${val}');document.getElementById('tabletTitle').scrollIntoView();" class="btn btn-outline-secondary">SHOW TABLET</a>
@@ -209,7 +216,8 @@ function showTablet(i) {
         row_at_n = []
         
         if (row_n == t[1]) { 
-          row_at_n.push("<figure style='display:inline-block; cursor:pointer;'><img onClick='attestazioni(" + '"' + t[3] + '","' + i + '"' + ")' style='width:50px;' src='data/" + i + "/LB_" + i + "_r" + row_n + "_" + t[2] + "_" + t[3] + ".png'><figcaption>" + t[3] + "</figcaption></figure>")
+          sign = "data/" + i + "/LB_" + i + "_r" + row_n + "_" + t[2] + "_" + t[3] + ".png"
+          row_at_n.push("<figure style='display:inline-block; cursor:pointer;'><img onClick='attestazioni(" + '"' + t[3] + '","' + i + '"' + ")' style='width:50px;' src="  + sign + "><figcaption>" + t[3] + "</figcaption></figure>")
         }
         content.push(row_at_n.join(""))
       });
@@ -224,13 +232,33 @@ function showTablet(i) {
     $("#tabletTitle").text(new_title = page_title + ' - ' + i.replace('_', ' '))*/
     $("#tabletTitle").text('PYLOS ' + i.replace('_', ' '))
     imgSource = `data/${i}/${i}.jpg`
-    tablet = `<a href=${imgSource} target="_blank"><img style="width:50vw;" src="${imgSource}"/></a>`
-    $("#tabletShower").append(tablet)
 /*    $('#series-matches').append('<a id="back-btn-2" class="btn px-0 mx-0 my-4" style="font-size:larger"></a>')
     $("#back-btn-2")
       .html('<i class="fa fa-times" aria-hidden="true"></i> CLEAN RESULTS')
       .attr("onclick", "window.location.reload()")*/
+    whiteSource = `data/${i}/${i}_white.jpg`
+    $.get(whiteSource)
+    .done(function() { 
+      tablet = `<a href=${imgSource} target="_blank"><img id="starting-image" style="width:50vw;" src="${imgSource}"/></a>
+      <button onClick="pictureChange('${imgSource}')">
+        <span aria-hidden="true"><img width="32px" src="images/001-color-circle.png"></span>
+      </button>
+      <button onClick="pictureChange('${whiteSource}')">
+        <span aria-hidden="true"><img width="32px" src="images/002-color-circle-1.png"></span>
+      </button>
+    <script>
+    function pictureChange(opposite)
+    {
+    document.getElementById('starting-image').src=opposite;
+    }
+    </script>
+      `
+      $("#tabletShower").append(tablet)
+    }).fail(function() { 
+      tablet = `<a href=${imgSource} target="_blank"><img style="width:50vw;" src="${imgSource}"/></a>`
+      $("#tabletShower").append(tablet)    })
   });}
+
 
 
   function sConsole(event) {
