@@ -85,16 +85,52 @@ function addSeriesTablets(value) {
       console.log(indexDescriptions)
       console.log(value)
       $('#series-description').empty()
-      $('#series-description').append(`<div id="descriptions"> 
-      <p>Category: ${indexDescriptions[value]['category']} ${iconizeMetadata(`${indexDescriptions[value]['category']}`)}</p>
-      <p>Shape: ${indexDescriptions[value]['shape']} ${iconizeMetadata(`${indexDescriptions[value]['shape']}`)}</p>
-      <p>Description: ${indexDescriptions[value]['series-description']}</p>
-      <p>Scribe: ${indexDescriptions[value]['author']}</p>
-      <p>Provenance: ${indexDescriptions[value]['provenance']}</p>
+      $('#series-description').append(`
+      <div id="descriptions" class="card-deck">
+      <div class="row">
+      <div class="card" style="width: 18rem;">
+      ${iconizeMetadata(`${indexDescriptions[value]['category']}`)}
+        <div class="card-body">
+          <h5 class="card-title">Category</h5>
+          <p class="card-text">${indexDescriptions[value]['category']}</p>
+        </div>
       </div>
-      <div class="text-center" font-size="larger">
-      <i class="fa fa-angle-double-down" aria-hidden="true"></i>
-      </div>`)
+
+      <div class="card" style="width: 18rem;">
+      ${iconizeMetadata(`${indexDescriptions[value]['shape']}`)}
+        <div class="card-body">
+          <h5 class="card-title">Shape</h5>
+          <p class="card-text">${indexDescriptions[value]['shape']}</p>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Description</h5>
+          <p class="card-text">${indexDescriptions[value]['series-description']}</p>
+        </div>
+      </div>
+      
+      <div class="card" style="width: 18rem;">
+      ${iconizeMetadata(`author`)}
+        <div class="card-body">
+          <h5 class="card-title">Scribe</h5>
+          <p class="card-text">${indexDescriptions[value]['author']}</p>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+      ${iconizeMetadata('provenance')}
+      <div class="card-body">
+        <h5 class="card-title">Provenance</h5>
+        <p class="card-text">${indexDescriptions[value]['provenance']}</p>
+      </div>
+    </div>
+
+    </div></div>
+    <div class="text-center" font-size="larger">
+    <i class="fa fa-angle-double-down" aria-hidden="true"></i>
+    </div>
+      `)
     })
     $.each( list_of_codes, function( key, val ) {
       if ( (key === 'category' ) || (key === 'shape' ) || (key === 'series-description' ) || (key === 'author' ) || (key === 'provenance' )) {
@@ -119,17 +155,23 @@ function addSeriesTablets(value) {
 function iconizeMetadata(input) {
   switch(input) {
     case "Furniture":
-      return '<i class="fas fa-couch"></i>';
+      return '<img class="card-img-top" src="images/table.png">';
     case "Personell":
-      return '<i class="fas fa-user-friends"></i>'
+      return '<img class="card-img-top" src="images/people.png">';
     case "Land Tenure":
-      return '<i class="fas fa-apple-alt"></i>'
+      return '<img class="card-img-top" src="images/land.png">';
     case "Wine":
-      return '<i class="fas fa-wine-bottle"></i>'
+      return '<img class="card-img-top" src="images/grapes.png">';
     case "Page":
-      return '<i class="fas fa-sticky-note"></i>'
+      return '<img class="card-img-top" src="images/shape-size-interface-symbol.png">';
     case "Palm leaf":
-      return '<i class="fas fa-leaf"></i>'
+      return '<img class="card-img-top" src="images/horizontal-shape.png">';
+    case "Palm leaf":
+        return '<img class="card-img-top" src="images/horizontal-shape.png">';
+    case "author":
+        return '<img class="card-img-top" src="images/writing.png">';
+    case "provenance":
+        return '<img class="card-img-top" src="images/ruins.png">';
   } 
 }
 

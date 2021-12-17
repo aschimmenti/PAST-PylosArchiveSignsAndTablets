@@ -280,13 +280,13 @@ body {
 
 
 #descriptions {
-    margin: auto 10%;
+    font-size: 0.9rem;
+    text-align: center;
 }
 
-#descriptions p {
-    margin: 0%;
-    padding: 0%;
-    font-size: larger;
+#descriptions img {
+    width: 60%;
+    margin: auto
 }
 
 .fa-angle-double-down::before{
