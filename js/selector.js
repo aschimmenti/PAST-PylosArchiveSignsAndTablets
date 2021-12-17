@@ -87,10 +87,13 @@ function addSeriesTablets(value) {
       $('#series-description').empty()
       $('#series-description').append(`<div id="descriptions"> 
       <p>Category: ${indexDescriptions[value]['category']} ${iconizeMetadata(`${indexDescriptions[value]['category']}`)}</p>
-      <p>Shape: ${indexDescriptions[value]['shape']}</p>
+      <p>Shape: ${indexDescriptions[value]['shape']} ${iconizeMetadata(`${indexDescriptions[value]['shape']}`)}</p>
       <p>Description: ${indexDescriptions[value]['series-description']}</p>
       <p>Scribe: ${indexDescriptions[value]['author']}</p>
       <p>Provenance: ${indexDescriptions[value]['provenance']}</p>
+      </div>
+      <div class="text-center" font-size="larger">
+      <i class="fa fa-angle-double-down" aria-hidden="true"></i>
       </div>`)
     })
     $.each( list_of_codes, function( key, val ) {
@@ -102,10 +105,10 @@ function addSeriesTablets(value) {
       `<div class="col-lg-12 col-md-12 col-sm-12">
       <div class="card mb-2 border-0">
       <div class="card-body text-center">
-      <img class="card-img-top img-responsive tablet-card-size" src="data/${key}/${key}.jpg" alt="Card image cap">
-        <h5 class="card-title">${key.replace('_', ' ')}</h5>
-        <p class="card-text"></p>
-        <a onclick="showTablet('${key}')" class="btn btn-outline-secondary">SHOW TABLET</a>
+      <h5 class="card-title">${key.replace('_', ' ')}</h5>
+      <img class="card-img-top img-responsive tablet-card-size"  style="max-width:50%; max-height:30%" src="data/${key}/${key}.jpg" alt="Card image cap">
+      <p class="card-text"></p>
+      <a onclick="showTablet('${key}')" class="btn btn-outline-secondary">SHOW TABLET</a>
       </div>
       </div></div>`
       )
@@ -114,10 +117,20 @@ function addSeriesTablets(value) {
 
 
 function iconizeMetadata(input) {
-  console.log(input)
-  if (input === "Furniture") {
-    return '<i class="fa fa-th" aria-hidden="true"></i>'
-  }
+  switch(input) {
+    case "Furniture":
+      return '<i class="fas fa-couch"></i>';
+    case "Personell":
+      return '<i class="fas fa-user-friends"></i>'
+    case "Land Tenure":
+      return '<i class="fas fa-apple-alt"></i>'
+    case "Wine":
+      return '<i class="fas fa-wine-bottle"></i>'
+    case "Page":
+      return '<i class="fas fa-sticky-note"></i>'
+    case "Palm leaf":
+      return '<i class="fas fa-leaf"></i>'
+  } 
 }
 
 
@@ -239,7 +252,7 @@ function showTablet(i) {
     whiteSource = `data/${i}/${i}_white.jpg`
     $.get(whiteSource)
     .done(function() { 
-      tablet = `<a href=${imgSource} target="_blank"><img id="starting-image" style="width:50vw;" src="${imgSource}"/></a>
+      tablet = `<a href=${imgSource} target="_blank"><img id="starting-image" style="width:100%;" src="${imgSource}"/></a>
       <button onClick="pictureChange('${imgSource}')">
         <span aria-hidden="true"><img width="32px" src="images/001-color-circle.png"></span>
       </button>
@@ -255,7 +268,7 @@ function showTablet(i) {
       `
       $("#tabletShower").append(tablet)
     }).fail(function() { 
-      tablet = `<a href=${imgSource} target="_blank"><img style="width:50vw;" src="${imgSource}"/></a>`
+      tablet = `<a href=${imgSource} target="_blank"><img style="width:100%;" src="${imgSource}"/></a>`
       $("#tabletShower").append(tablet)    })
   });}
 
