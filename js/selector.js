@@ -253,10 +253,10 @@ function showTablet(i) {
     $.get(whiteSource)
     .done(function() { 
       tablet = `<a href=${imgSource} target="_blank"><img id="starting-image" style="width:100%;" src="${imgSource}"/></a>
-      <button onClick="pictureChange('${imgSource}')">
+      <button style="background:white;" onClick="pictureChange('${imgSource}')">
         <span aria-hidden="true"><img width="32px" src="images/001-color-circle.png"></span>
       </button>
-      <button onClick="pictureChange('${whiteSource}')">
+      <button style="background:white;" onClick="pictureChange('${whiteSource}')">
         <span aria-hidden="true"><img width="32px" src="images/002-color-circle-1.png"></span>
       </button>
     <script>
