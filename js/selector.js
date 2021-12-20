@@ -108,7 +108,7 @@ function addSeriesTablets(value) {
 
       <div class="card border-dark mb-3" style="max-width: 18rem;">
         <div class="card-header">Description</div>
-        <div class="card-body text-dark">
+        <div class="card-body text-dark text-justify">
           <p class="card-text">${indexDescriptions[value]['series-description']}</p>
         </div>
       </div>
