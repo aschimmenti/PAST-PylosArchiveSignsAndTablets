@@ -88,44 +88,48 @@ function addSeriesTablets(value) {
       $('#series-description').append(`
       <div id="descriptions" class="card-deck">
       <div class="row">
-      <div class="card" style="width: 18rem;">
-      ${iconizeMetadata(`${indexDescriptions[value]['category']}`)}
-        <div class="card-body">
-          <h5 class="card-title">Category</h5>
-          <p class="card-text">${indexDescriptions[value]['category']}</p>
+      <div class="card border-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header">Category</div>
+        <div class="card-body text-dark">
+          <h5 class="card-title">${indexDescriptions[value]['category']}</h5>
+          ${iconizeMetadata(`${indexDescriptions[value]['category']}`)}
+          <p class="card-text"></p>
         </div>
       </div>
 
-      <div class="card" style="width: 18rem;">
-      ${iconizeMetadata(`${indexDescriptions[value]['shape']}`)}
-        <div class="card-body">
-          <h5 class="card-title">Shape</h5>
-          <p class="card-text">${indexDescriptions[value]['shape']}</p>
+      <div class="card border-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header">Shape</div>
+        <div class="card-body text-dark">
+          <h5 class="card-title">${indexDescriptions[value]['shape']}</h5>
+          ${iconizeMetadata(`${indexDescriptions[value]['shape']}`)}
+          <p class="card-text"></p>
         </div>
       </div>
 
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Description</h5>
+      <div class="card border-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header">Description</div>
+        <div class="card-body text-dark">
           <p class="card-text">${indexDescriptions[value]['series-description']}</p>
         </div>
       </div>
-      
-      <div class="card" style="width: 18rem;">
-      ${iconizeMetadata(`author`)}
-        <div class="card-body">
-          <h5 class="card-title">Scribe</h5>
-          <p class="card-text">${indexDescriptions[value]['author']}</p>
+
+      <div class="card border-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header">Scribe</div>
+        <div class="card-body text-dark">
+          <h5 class="card-title">${indexDescriptions[value]['author']}</h5>
+          ${iconizeMetadata(`author`)}
+          <p class="card-text"></p>
         </div>
       </div>
-      <div class="card" style="width: 18rem;">
-      ${iconizeMetadata('provenance')}
-      <div class="card-body">
-        <h5 class="card-title">Provenance</h5>
-        <p class="card-text">${indexDescriptions[value]['provenance']}</p>
+  
+      <div class="card border-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header">Provenance</div>
+        <div class="card-body text-dark">
+          <h5 class="card-title">${indexDescriptions[value]['provenance']}</h5>
+          ${iconizeMetadata(`provenance`)}
+          <p class="card-text"></p>
+        </div>
       </div>
-    </div>
-
     </div></div>
     <div class="text-center" font-size="larger">
     <i class="fa fa-angle-double-down" aria-hidden="true"></i>
@@ -155,23 +159,23 @@ function addSeriesTablets(value) {
 function iconizeMetadata(input) {
   switch(input) {
     case "Furniture":
-      return '<img class="card-img-top" src="images/table.png">';
+      return '<img class="card-img-top" width="50%;" src="images/table.png">';
     case "Personell":
-      return '<img class="card-img-top" src="images/people.png">';
+      return '<img class="card-img-top" width="50%;" src="images/people.png">';
     case "Land Tenure":
-      return '<img class="card-img-top" src="images/land.png">';
+      return '<img class="card-img-top" width="50%;" src="images/land.png">';
     case "Wine":
-      return '<img class="card-img-top" src="images/grapes.png">';
+      return '<img class="card-img-top" width="50%;" src="images/grapes.png">';
     case "Page":
-      return '<img class="card-img-top" src="images/shape-size-interface-symbol.png">';
+      return '<img class="card-img-top" width="50%;" src="images/shape-size-interface-symbol.png">';
     case "Palm leaf":
-      return '<img class="card-img-top" src="images/horizontal-shape.png">';
+      return '<img class="card-img-top" width="50%;" src="images/horizontal-shape.png">';
     case "Palm leaf":
-        return '<img class="card-img-top" src="images/horizontal-shape.png">';
+        return '<img class="card-img-top" width="50%;" src="images/horizontal-shape.png">';
     case "author":
-        return '<img class="card-img-top" src="images/writing.png">';
+        return '<img class="card-img-top" width="50%;" src="images/writing.png">';
     case "provenance":
-        return '<img class="card-img-top" src="images/ruins.png">';
+        return '<img class="card-img-top" width="50%;" src="images/ruins.png">';
   } 
 }
 
