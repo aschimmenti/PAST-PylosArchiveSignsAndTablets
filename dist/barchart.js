@@ -17077,11 +17077,11 @@ function getChart(input) {
       return am5.Bullet.new(root, {
         locationX: 1,
         sprite: am5.Label.new(root, {
-          text: "{valueXWorking.formatNumber('#.# a')}",
+          text: "", //text: "{valueXWorking.formatNumber('#.# a')}",
           fill: root.interfaceColors.get("alternativeText"),
           centerX: am5.p100,
           centerY: am5.p50,
-          populateText: true
+          populateText: false // populateText: true
         })
       });
     });

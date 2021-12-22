@@ -35,10 +35,17 @@
                 <a class="nav-link cool-link" href="#">About <span class="nav-brand-acr ">PAST</span></a>
             </li>
         </ul>
+        <!--
         <form class="form-inline ml-md-4 ml-sm-0" action="" id="form" onsubmit="sConsole(event)">
           <input class="form-control col-9" type="text" name="data" id="data" placeholder="Search Mycenaean words" aria-label="Search">
-          <button class="btn col-3 btn-outline-secondary" type="submit">Search</button>
-        </form>
+          
+          <button class="btn col-3 btn-outline-secondary" type="submit">Search</button>-->
+          <form class="form-inline" id="form" autocomplete="off" onsubmit="sConsole(event)">
+            <div class="autocomplete col-9" style="width:300px;">
+              <input id="data" type="text" name="myCountry" placeholder="Search Mycenaean words">
+            </div>
+            <button class="btn col-3 btn-outline-secondary" type="submit">Search</button>
+          </form>
     </div>
 </div>
 </nav>
@@ -72,6 +79,53 @@
       <a href="https://site.unibo.it/inscribe/en" target="_blank"><img class="logo-jpeg img-fluid mx-auto d-block" src="images/logo.jpeg"></a>
   </div>
 </div>
+<style>
+  .autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+}
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+input[type=submit] {
+  background-color: DodgerBlue;
+  color: #fff;
+}
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #e9e9e9;
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+}
+</style>
 <script>
 window.onload=function(){
   if(window.jQuery){$(document).ready(function(){
@@ -87,8 +141,108 @@ window.onload=function(){
           if($(".navbar-toggler").is(":hidden")){$(".sideMenu, .overlay").hide()}
           else{$(".sideMenu, .overlay").show()}})})}
           else{console.log("sidebarNavigation Requires jQuery")}}
-
 </script>
+<script>
+function autocomplete(inp, arr) {
+  /*the autocomplete function takes two arguments,
+  the text field element and an array of possible autocompleted values:*/
+  var currentFocus;
+  /*execute a function when someone writes in the text field:*/
+  inp.addEventListener("input", function(e) {
+      var a, b, i, val = this.value;
+      /*close any already open lists of autocompleted values*/
+      closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+      /*create a DIV element that will contain the items (values):*/
+      a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "autocomplete-list");
+      a.setAttribute("class", "autocomplete-items");
+      /*append the DIV element as a child of the autocomplete container:*/
+      this.parentNode.appendChild(a);
+      /*for each item in the array...*/
+      for (i = 0; i < arr.length; i++) {
+        /*check if the item starts with the same letters as the text field value:*/
+        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          /*create a DIV element for each matching element:*/
+          b = document.createElement("DIV");
+          /*make the matching letters bold:*/
+          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+          /*insert a input field that will hold the current array item's value:*/
+          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+          /*execute a function when someone clicks on the item value (DIV element):*/
+              b.addEventListener("click", function(e) {
+              /*insert the value for the autocomplete text field:*/
+              inp.value = this.getElementsByTagName("input")[0].value;
+              /*close the list of autocompleted values,
+              (or any other open lists of autocompleted values:*/
+              closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+  });
+  /*execute a function presses a key on the keyboard:*/
+  inp.addEventListener("keydown", function(e) {
+      var x = document.getElementById(this.id + "autocomplete-list");
+      if (x) x = x.getElementsByTagName("div");
+      if (e.keyCode == 40) {
+        /*If the arrow DOWN key is pressed,
+        increase the currentFocus variable:*/
+        currentFocus++;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 38) { //up
+        /*If the arrow UP key is pressed,
+        decrease the currentFocus variable:*/
+        currentFocus--;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 13) {
+        /*If the ENTER key is pressed, prevent the form from being submitted,*/
+        e.preventDefault();
+        if (currentFocus > -1) {
+          /*and simulate a click on the "active" item:*/
+          if (x) x[currentFocus].click();
+        }
+      }
+  });
+  function addActive(x) {
+    /*a function to classify an item as "active":*/
+    if (!x) return false;
+    /*start by removing the "active" class on all items:*/
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    /*add class "autocomplete-active":*/
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+    /*a function to remove the "active" class from all autocomplete items:*/
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+    /*close all autocomplete lists in the document,
+    except the one passed as an argument:*/
+    var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+      x[i].parentNode.removeChild(x[i]);
+    }
+  }
+}
+/*execute a function when someone clicks in the document:*/
+document.addEventListener("click", function (e) {
+    closeAllLists(e.target);
+});
+}
+var glossary = ['220', 'amotewija', 'damokoro', 'onitijapi', 'akarano', 'owowe', 'qerana', 'parakeweqe', 'toqidewesa', 'ajameno', '228VAS', 'apetemene', '203VAS', 'seremokaraoreqe', 'a2ro', 'kuruso', 'wao', 'apiqoto', 'enewopeza', '6', 'api', 'ajamena', 'a', 'anowe', 'qetorowe', 'kononipi', 'kurusapiqe', 'saqe', 'b', 'kurusapi', 'kuwanoqe', 'rewopiqe', 'adirijapiqe', '202VAS', 'tonijo', '3', 'adirijateqe', 'pe', 'wepeza', 'rewotejo', 'pakoto', 'a3keu', 'mezoe', 'weareja', 'kuteso', 'poroeke', 'teke', 'ekamapi', 'wanaka', 'qeqinoto', 'sowenoqe', 'tiripo', 'tiripode', 'aute', 'purautoro', 'aukewa', 'pukoso', 'pode', 'qeqinomena', 'erepate', 'opikereminijapi', 'taranuqe', 'kutesejo', 'qoukara', 'ekara', 'popi', 'qeqinotoqe', 'tono', 'poroeketerija', '34keu', 'toqideja', 'kuwano', 'kuteseja', 'wea2rejo', 'karuweqe', '2', 'dipae', 'A', 'karupi', 'toqide', 'kuwanijoqe', 'kurusoqe', 'iqoqe', 'toqideqe', 'pedewesa', 'audewe', 'potipiqe', 'adirijapi', 'pasaro', 'seremokaraore', 'kunaja', 'toqidejo', 'weke', 'qeto', 'raeja', 'ekamateqe', 'pijera3', 'parakuwe', 'enewopezo', 'ponikeqe', 'mewijo', 'udopi', 'korupiqe', 'erepatejapi', 'opikewirijeu', 'ponikipi', 'koronowesa', 'opikereminija', 'apu', 'kutetajo', 'qisipee', '234', '232', 'atoroqo', 'enewo', 'peza', 'keresijo', 'wanasewija', '204VAS', 'owide', 'koterija', 'pitiro2wesa', 'topezo', '214VAS', 'kekaumeno', 'B', 'mira2', 'pu2keqiri', 'ekee', 'qaratoro', 'erepatejo', 'ote', 'taranuwe', 'porupodeqe', '201VAS', 'soweneja', 'dipa', '1', 'itowesa', 'kokireja', 'seremokaraapi', 'tiriowee', 'karaapi', 'tirijowe', 'topeza', 'erepatejoqe', 'menoeja', 'erepateja', 'kerea2', '200VAS', 'eme', 'taranu', 'parakuweqe', 'audepi'];
+
+  autocomplete(document.getElementById("data"), glossary);
+  </script>
 <script src="js/zoom.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="js/selector.js"></script>
