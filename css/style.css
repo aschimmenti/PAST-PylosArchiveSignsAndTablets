@@ -76,8 +76,8 @@ a, .nav-brand-acr, .nav-brand-subtitle, .nav-link {
     color: black !important;
 }
 .squared {
-    border-top: 2px solid black;
-    border-right: 2px solid black;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
 }
 .background-8 {
     background: url(images/background-md-8.png);
@@ -253,10 +253,10 @@ EEEE*/
 }
 
 .squared-top {
-    border-top: 2px solid black
+    border-top: 1px solid black
 }
 
-button, a{
+button, a, figure img{
  cursor: pointer;
 }
 
@@ -296,3 +296,16 @@ body {
     font-size: 30px;
 }
 
+.squared-top {
+    border-top: 1px solid black;
+}
+
+.img-tablet-final {
+    max-height: 70vh;
+    max-width: 80vw;
+}
+
+.gradient-breakline {
+    padding-bottom: 2%;
+    border-bottom: 0.5px solid black;
+}
