@@ -354,7 +354,7 @@ function sConsole(event) {
   var data = document.getElementById("data");
   matches = []
   $('#series-match').empty()
-  $.getJSON('data/result2.json', function (index_of_transcriptions) {
+  $.getJSON('data/result3.json', function (index_of_transcriptions) {
     $.each(index_of_transcriptions, function (key, value) {
       $.each(value, function (idx, str) {
         if (str.includes(data.value)) {

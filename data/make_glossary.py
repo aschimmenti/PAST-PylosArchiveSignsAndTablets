@@ -2,7 +2,7 @@
 import json
 import string
 # Opening JSON file
-f = open('data/result2.json')
+f = open('data/result3.json')
  
 # returns JSON object as
 # a dictionary
