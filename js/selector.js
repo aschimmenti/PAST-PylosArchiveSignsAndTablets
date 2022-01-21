@@ -174,7 +174,7 @@ function iconizeMetadata(input) {
   switch (input) {
     case "Furniture":
       return '<img class="card-img-top" width="40%;" src="images/table.png">';
-    case "Personnel":
+    case "Personell":
       return '<img class="card-img-top" width="40%;" src="images/people.png">';
     case "Land Tenure":
       return '<img class="card-img-top" width="40%;" src="images/land.png">';
